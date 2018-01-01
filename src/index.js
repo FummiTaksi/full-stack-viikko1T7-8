@@ -9,11 +9,16 @@ const Otsikko = (props) => {
     )
 }
 
+const Osa = (props) => {
+    return (
+        <p>{props.osa.nimi} {props.osa.tehtavaMaara}</p>
+    )
+}
+
 const Sisalto = (props) => {
     var elementit = [];
     for (var i = 0; i < props.osat.length; i++) {
-        var osa = props.osat[i];
-        elementit.push(<p> {osa.nimi} {osa.tehtavaMaara}</p>);
+        elementit.push(<Osa osa = {props.osat[i]} />);
     }
     return elementit;
 }
