@@ -1,6 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+
+const Otsikko = (props) => {
+
+    return (
+        <h1>{props.text}</h1>
+    )
+}
 const App = () => {
   const kurssi = 'Half Stack -sovelluskehitys'
   const osa1 = 'Reactin perusteet'
@@ -12,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>{kurssi}</h1>
+      <Otsikko text = 'Half Stack -sovelluskehitys' />
       <p>{osa1} {tehtavia1}</p>
       <p>{osa2} {tehtavia2}</p>
       <p>{osa3} {tehtavia3}</p>
