@@ -5,40 +5,40 @@ import ReactDOM from 'react-dom'
 const Otsikko = (props) => {
 
     return (
-        <h1>{props.text}</h1>
+        <h1>{props.teksti}</h1>
     )
 }
 
 const Sisalto = (props) => {
-    var elements = [];
-    for (var i = 0; i < props.courses.length; i++) {
-        var element = props.courses[i];
-        elements.push(<p> {element.name} {element.exercises}</p>);
+    var elementit = [];
+    for (var i = 0; i < props.osat.length; i++) {
+        var osa = props.osat[i];
+        elementit.push(<p> {osa.nimi} {osa.tehtavaMaara}</p>);
     }
-    return elements;
+    return elementit;
 }
 
 const lisaaOsaListaan = (lista, nimi, tehtavat) => {
-    lista.push({name: nimi, exercises: tehtavat});
+    lista.push({nimi: nimi, tehtavaMaara: tehtavat});
 }
 
 const App = () => {
   const kurssi = 'Half Stack -sovelluskehitys'
-  var elements = [];
+  var elementit = [];
   const osa1 = 'Reactin perusteet'
   const tehtavia1 = 10
-  lisaaOsaListaan(elements, osa1, tehtavia1);
+  lisaaOsaListaan(elementit, osa1, tehtavia1);
   const osa2 = 'Tiedonvälitys propseilla'
   const tehtavia2 = 7
-  lisaaOsaListaan(elements, osa2 , tehtavia2);
+  lisaaOsaListaan(elementit, osa2 , tehtavia2);
   const osa3 = 'Komponenttien tila'
   const tehtavia3 = 14
-  lisaaOsaListaan(elements, osa3 , tehtavia3);
+  lisaaOsaListaan(elementit, osa3 , tehtavia3);
 
   return (
     <div>
-      <Otsikko text = 'Half Stack -sovelluskehitys' />
-      <Sisalto courses = {elements} />
+      <Otsikko teksti = 'Half Stack -sovelluskehitys' />
+      <Sisalto osat = {elementit} />
       <p>yhteensä {tehtavia1 + tehtavia2 + tehtavia3} tehtävää</p>
     </div>
   )
