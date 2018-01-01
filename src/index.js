@@ -18,6 +18,15 @@ const Sisalto = (props) => {
     return elementit;
 }
 
+const Yhteensa = (props) => {
+    var summa = 0;
+    for (var i = 0; i < props.osat.length; i++) {
+        var osa = props.osat[i];
+        summa += osa.tehtavaMaara;
+    }
+    return <p>yhteensä {summa} tehtävää</p>
+}
+
 const lisaaOsaListaan = (lista, nimi, tehtavat) => {
     lista.push({nimi: nimi, tehtavaMaara: tehtavat});
 }
@@ -39,7 +48,7 @@ const App = () => {
     <div>
       <Otsikko teksti = 'Half Stack -sovelluskehitys' />
       <Sisalto osat = {elementit} />
-      <p>yhteensä {tehtavia1 + tehtavia2 + tehtavia3} tehtävää</p>
+      <Yhteensa osat = {elementit} />
     </div>
   )
 }
